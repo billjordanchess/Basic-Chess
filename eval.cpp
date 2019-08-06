@@ -177,7 +177,7 @@ It is used to detect passed pawns.
 bool Pawns2(const int s,const int xs,const int start)
 {
 int x = start + ForwardSquare[s];
-while(x>H2 && x<A7)
+while(x>H1 && x<A8)
 {
 	if(board[x]==P)
 		return true;

@@ -114,10 +114,10 @@ for(int x = 0;x < 64;x++)
     score[1] += king_endgame[1][kingloc[1]];
    else
   {
-	if(col[kingloc[0]]>3)
-		score[1] += kingside_pawns[0];
+	if(col[kingloc[1]]>3)
+		score[1] += kingside_pawns[1];
 	else
-		score[1] += queenside_pawns[0];
+		score[1] += queenside_pawns[1];
   }
 
   return score[side] - score[xside];
@@ -187,7 +187,7 @@ bool Pawns2(const int s,const int xs,const int start)
 int x = start + ForwardSquare[s];
 while(x>H2 && x<A7)
 {
-	if(board[x]==P && color[x]==xs)
+	if(board[x]==P)
 		return true;
 	if(col[x]>0 && board[x-1]==P && color[x-1]==xs)
 		return true;

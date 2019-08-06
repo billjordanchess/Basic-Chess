@@ -56,18 +56,10 @@ const int kingside_defence[2][64]=
 }};
 /*
 
-Eval() is simple. Firstly it fetches the table scores which were updated whenever moves were
-updated. 
-
-It then looks up the pawn hash table. If the pawn position is not
-already stored it evaluates the pawns and adds the scores to the pawn hash table.
-It adds the pawn scores for each side.
-
-It then adds a score for the king position depending on how much material the opponent has.
-It adds a bonus for a pawn or piece in front of the King. (A very simple King defence score).
-
+Eval() is simple. Firstly it adds the square scores for each piece of both sides.
+If the opponent does not have a queen it adds the endgame score for each king.
+If the opponent has a queen it adds the pawn defence score for each king.
 It turn returns the side to moves score minus the opponent's score.
-
 There are plenty of things that could be added to the eval function.
 
 */

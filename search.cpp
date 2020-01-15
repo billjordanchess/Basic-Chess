@@ -174,12 +174,9 @@ int c = 0;
 int x;
 int d;
 
-int top = move_list[first_move[ply]].score;
-
 for (int i = first_move[ply]; i < first_move[ply + 1]; ++i) 
-{
-	    if(top>0)
-			top = Sort(i);
+{	   
+		Sort(i);
 
 		if (!MakeMove(move_list[i].start,move_list[i].dest))
 		{

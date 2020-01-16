@@ -92,6 +92,7 @@ for(int x = 0;x < 64;x++)
 		}
 	}
 }
+
   if(queens[1]==0)
     score[0] += king_endgame[0][kingloc[0]];
   else

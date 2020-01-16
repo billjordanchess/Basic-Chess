@@ -59,7 +59,7 @@ int main()
 {
 printf("\n");
 printf("Bills Basic Chess Engine\n");
-printf("Version 1.0, 5/5/19\n");
+printf("Version 1.01, 15/1/19\n");
 printf("Copyright 2019 Bill Jordan \n");
 printf("\n");
 printf("\"help\" displays a list of commands.\n");
@@ -91,23 +91,7 @@ if (side == computer_side)
 	currentkey = GetKey();
 	currentlock = GetLock();
 	lookup = LookUp(side);
-	/*
-	if(lookup != 0)
-	{
-	   printf("\n lookup %d ",lookup);
-	   Alg(hash_start,hash_dest);printf("\n");
-	}
-	else
-	{	
-		move_start = move_start;//
-		move_dest = move_dest;//
-		printf("(no legal moves)\n");
-		computer_side = EMPTY;
-		DisplayBoard();
-		Gen();
-		continue;
-	} 
-	*/
+	
 	if(move_start != 0 || move_dest != 0)
 	{
 	   hash_start = move_start;
@@ -308,10 +292,12 @@ int ParseMove(char *s)
 	    }
 	return -1;
 }
-/* DisplayBoard() displays the board */
+/* 
+DisplayBoard() displays the board 
+The console object is only used to display in colour.
+*/
 void DisplayBoard()
 {
-	//
 	HANDLE hConsole;
 hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 int text = 15;
@@ -402,12 +388,12 @@ int text = 15;
 	}
 	printf("\n\n   h g f e d c b a\n\n");
     }
-	//*/
 }
 
-/* xboard() is a substitute for main() that is XBoard
-   and WinBoard compatible. See the following page for details:
-   http://www.research.digital.com/SRC/personal/mann/xboard/engine-intf.html */
+/* 
+xboard() is a substitute for main() that is XBoard
+and WinBoard compatible. 
+*/
 
 void xboard()
 {

@@ -11,8 +11,6 @@ const U64 HASHSIZE = 5000000;
 
 int hash_start,hash_dest;
 
-U64 Random2(int x);//
-
 /*
 
 A hash table entry includes a lock and start and dest squares.
@@ -98,7 +96,6 @@ AddKey updates the current key and lock.
 The key is a single number representing a position.
 Different positions may map to the same key.
 The lock is very similar to the key (its a second key), which 
-
 is a different number
 because it was seeded with different random numbers.
 While the odds of several positions having the same key are 
@@ -160,13 +157,3 @@ hash_dest = hashpos[s][currentkey].dest;
 return true;
 }
 
-U64 Random2(int x)
-{
-U64 r = 0;
-for(int y=0;y<x;y++)//23
-{
-	if(rand()%100<50) 
-		;//SetBit(r,y);
-}
-return r;
-}

@@ -27,8 +27,7 @@ moves for them.
 */
 void Gen()
 {
-first_move[ply + 1] = first_move[ply];
-mc = first_move[ply];//
+mc = first_move[ply];
 
 GenEp();
 
@@ -88,9 +87,9 @@ Note that sometimes two en passant captures may be possible.
 */
 void GenEp()
 {
-int ep = GetHistoryDest(hply - 1);
+int ep = game_list[hply - 1].dest;
 	
-if(board[ep] == 0 && abs(GetHistoryStart(hply - 1) - ep) == 16)
+if(board[ep] == 0 && abs(game_list[hply - 1].start - ep) == 16)
 {
 	if(col[ep] > 0 && color[ep-1]==side && board[ep-1]==P)
 	{

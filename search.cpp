@@ -52,7 +52,7 @@ nodes = 0;
    
 NewPosition();
 memset(history, 0, sizeof(history));	
-//printf("ply      nodes  score  pv\n");
+printf("ply      nodes  score  pv\n");
 
 for (int i = 1; i <= max_depth; ++i) 
 {
@@ -119,26 +119,8 @@ If there were no legal moves it is either checkmate or stalemate.
 */
 int Search(int alpha, int beta, int depth)
 {
-	/*
-	if(board[E5]==2 && board[D2]==2 && board[C8]==5 && board[D1]==3)// && hply>30 && color[D2]==0 && color[E5]==1)
-	//if(board[B1]==3 && board[F6]==2 && hply>100 && board[A4]==0 && board[C4]==0 && board[F4]==0 && board[E4]==5)
-		{
-		DisplayBoard();
-		printf("\n ck %d ",currentkey);
-		for (int i = hply-1; i >= hply-5; i--)
-		{
-			printf(" ");
-			Alg(game_list[i].start,game_list[i].dest);
-			printf(" hash %d ",game_list[i].hash);
-			printf(" \n");
-		}
-		_getch();
-		}
-		*/
-
 	if (ply && reps2())
 	{
-		//return 5000;//learning
 		return 0;
 	}
 
@@ -174,21 +156,14 @@ int c = 0;
 int x;
 int d;
 
-for (int i = first_move[ply]; i < first_move[ply + 1]; ++i) 
-{	   
+for (int i = first_move[ply]; i < first_move[ply + 1]; i++) 
+{
 		Sort(i);
 
 		if (!MakeMove(move_list[i].start,move_list[i].dest))
 		{
 			continue;
 		}
-		/*
-		if(reps2())//learn
-		{
-			TakeBack();
-			continue;
-		}
-		*/
 		c++;
 	
 	if (Attack(xside,kingloc[side])) 
@@ -273,7 +248,7 @@ int best = 0;
 
 GenCaptures();
 
-for (int i = first_move[ply]; i < first_move[ply + 1]; ++i) 
+for (int i = first_move[ply]; i < first_move[ply + 1]; i++) 
 {
 		Sort(i);
 
@@ -396,22 +371,6 @@ int reps2()
 			return 1;
 		}
 	}
-	/*
-	for (int i = hply-3; i >= hply-fifty; i-=2)
-	{
-		if (game_list[i].hash == currentkey && game_list[i].lock == currentlock)
-		{
-			return 1;
-		}
-	}
-	for (int i = hply-2; i >= hply-fifty; i-=2)
-	{
-		if (game_list[i].hash == currentkey && game_list[i].lock == currentlock)
-		{
-			return 1;
-		}
-	}
-	*/
 	return 0;
 }
 /*
@@ -420,7 +379,7 @@ Sort searches the move list for the move with the highest score.
 It is moved to the top of the list so that it will be played next.
 
 */
-int Sort(const int from)
+void Sort(const int from)
 {
 	move g;
 
@@ -436,8 +395,6 @@ int Sort(const int from)
 	g = move_list[from];
 	move_list[from] = move_list[bi];
 	move_list[bi] = g;
-
-	return move_list[bi].score;
 }
 /*
 

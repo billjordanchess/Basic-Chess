@@ -265,21 +265,4 @@ void UnMakeRecapture()
 	if(board[start]==K)
 		kingloc[side] = start;
 }
-/*
 
-GetHistoryStart returns the start square for the move in the game list.
-
-*/
-int GetHistoryStart(const int n)
-{
-	return game_list[n].start;
-}
-/*
-
-GetHistoryDest returns the dest square for the move in the game list.
-
-*/
-int GetHistoryDest(const int n)
-{
-	return game_list[n].dest;
-}

@@ -207,7 +207,7 @@ int Search(int alpha, int beta, int depth);
 int CaptureSearch(int alpha,int beta);
 int ReCaptureSearch(int,const int);
 int reps2();
-int Sort(const int from);
+void Sort(const int from);
 void CheckUp();
 
 //gen.cpp
@@ -245,8 +245,6 @@ int MakeMove(const int,const int);
 void TakeBack();
 int MakeRecapture(const int,const int);
 void UnMakeRecapture();
-int GetHistoryStart(const int n);
-int GetHistoryDest(const int n);
 
 //eval.cpp
 int Eval();
